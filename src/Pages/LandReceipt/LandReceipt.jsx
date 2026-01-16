@@ -118,20 +118,21 @@ const LandReceipt = ({ data, onBack }) => {
 
         fontBangla: { fontFamily: "'Kalpurush', 'SolaimanLipi', sans-serif" },
         headerText: { fontSize: '14px', lineHeight: '1.3', fontFamily: "'Kalpurush', 'SolaimanLipi', sans-serif", },
-        title: { fontSize: '14px', textAlign: 'center', marginBottom: '2px', fontFamily: "'Kalpurush', 'SolaimanLipi', sans-serif", },
-        subTitle: { fontSize: '14px', textAlign: 'center', marginBottom: '15px', fontFamily: "'Kalpurush', 'SolaimanLipi', sans-serif", },
+        title: { fontSize: '14px', textAlign: 'center', marginBottom: '0px', fontFamily: "'Kalpurush', 'SolaimanLipi', sans-serif", },
+        subTitle: { fontSize: '13px', textAlign: 'center', marginBottom: '8px', fontFamily: "'Kalpurush', 'SolaimanLipi', sans-serif", },
 
         // Dotted Fields Style
         fieldRow: { display: 'flex', alignItems: 'flex-end', marginBottom: '6px' },
         fieldLabel: { whiteSpace: 'nowrap', paddingRight: '5px', fontSize: '13px', fontWeight: '500' },
         fieldValue: {
-            borderBottom: '2px dashed  #000',
+            borderBottom: '1px dashed  #000',
             flexGrow: 1,
-            textAlign: 'center', // Image shows center aligned values
+            textAlign: 'start', // Image shows center aligned values
             paddingBottom: '0px',
-            marginLeft: '2px ',
+            marginLeft: '4px ',
             fontWeight: '',
-            fontSize: '14px',
+            paddingLeft: '5px',
+            fontSize: '13px',
             fontFamily: "'Kalpurush', 'SolaimanLipi', sans-serif",
         },
 
@@ -148,8 +149,9 @@ const LandReceipt = ({ data, onBack }) => {
         sectionHeader: {
             textAlign: 'center',
             fontWeight: 'bold',
-            textDecoration: 'underline 2px',
-            margin: '10px 0 5px 0',
+            textDecoration: 'underline 1px',
+            textDecorationThickness: '1.3px',
+            margin: '5px 0 5px 0',
             fontSize: '14px',
             fontFamily: "'Kalpurush', 'SolaimanLipi', sans-serif"
         }
@@ -175,7 +177,7 @@ const LandReceipt = ({ data, onBack }) => {
                     position: 'relative'
                 }}>
                     <div style={{
-                        border: '2px dashed #000',
+                        border: '1px dashed #000',
                         padding: '4mm',
                         height: '100%',
                         display: 'flex',
@@ -189,12 +191,12 @@ const LandReceipt = ({ data, onBack }) => {
                         {/* 1. HEADER */}
                         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
                             <div style={s.headerText}>
-                                <p>বাংলাদেশ ফরম নং ১০৭৭</p>
-                                <p>(সংশোধিত)</p>
+                                <p style={{ fontSize: '13px' }}>বাংলাদেশ ফরম নং ১০৭৭</p>
+                                <p style={{ fontSize: '13px' }}>(সংশোধিত)</p>
                             </div>
                             <div style={{ ...s.headerText, textAlign: 'right' }}>
-                                <p>(পরিশিষ্ট: ৩৮)</p>
-                                <p style={{ fontSize: '13px' }}>ক্রমিক নং {toBangla(receiptData.id)}</p>
+                                <p style={{ fontSize: '13px' }}>(পরিশিষ্ট: ৩৮)</p>
+                                <p style={{ fontSize: '12px' }}>ক্রমিক নং {toBangla(receiptData.id)}</p>
                             </div>
                         </div>
 
@@ -203,17 +205,17 @@ const LandReceipt = ({ data, onBack }) => {
 
                         {/* 2. INFO FIELDS (Dotted Lines matching Image) */}
                         <div style={{ marginTop: '10px' }}>
-                            {/* Row 1 */}
-                            <div style={s.fieldRow}>
+                            {/* Row 1 */} 
+                            <div style={s.fieldRow}> 
                                 <span style={s.fieldLabel}>সিটি কর্পোরেশন/ পৌর/ ইউনিয়ন ভূমি অফিসের নাম:</span>
-                                <span style={{ ...s.fieldValue, textAlign: 'center' }}>{receiptData.landOfficeName}</span>
+                                <span style={{ ...s.fieldValue, textAlign: 'start',fontSize:'13px',paddingLeft: '5px' }}>{receiptData.landOfficeName}</span>
                             </div>
 
                             {/* Row 2: Split 3 ways */}
                             <div style={{ display: 'flex', alignItems: 'flex-end', gap: '10px', marginBottom: '6px' }}>
                                 <div style={{ display: 'flex', flex: 1.5, alignItems: 'flex-end' }}>
                                     <span style={s.fieldLabel}>মৌজার নাম ও জে. এল. নং:</span>
-                                    <span style={{ ...s.fieldValue, textAlign: 'left', paddingLeft: '10px' }}>{receiptData.mouzaName}</span>
+                                    <span style={{ ...s.fieldValue, textAlign: 'left', paddingLeft: '5px' }}>{receiptData.mouzaName}</span>
                                 </div>
                                 <div style={{ display: 'flex', flex: 1, alignItems: 'flex-end' }}>
                                     <span style={s.fieldLabel}>উপজেলা/থানা:</span>
@@ -228,15 +230,15 @@ const LandReceipt = ({ data, onBack }) => {
                             {/* Row 3 */}
                             <div style={s.fieldRow}>
                                 <span style={s.fieldLabel}>২ নং রেজিস্টার অনুযায়ী হোল্ডিং নম্বর:</span>
-                                <span style={{ ...s.fieldValue, flexGrow: 0, width: '200px', textAlign: 'left', paddingLeft: '20px' }}>{toBangla(receiptData.holdingNo)}</span>
-                                <div style={{ flexGrow: 1, borderBottom: '2px dashed #000' }}></div> {/* Filler line */}
+                                <span style={{ ...s.fieldValue, flexGrow: 0, width: '200px', textAlign: 'left', paddingLeft: '5px' }}>{toBangla(receiptData.holdingNo)}</span>
+                                <div style={{ flexGrow: 1, borderBottom: '1px dashed #000' }}></div> {/* Filler line */}
                             </div>
 
                             {/* Row 4 */}
                             <div style={s.fieldRow}>
                                 <span style={s.fieldLabel}>খতিয়ান নং:</span>
-                                <span style={{ ...s.fieldValue, flexGrow: 0, width: '150px', textAlign: 'left', paddingLeft: '20px' }}>{toBangla(receiptData.khatianNo)}</span>
-                                <div style={{ flexGrow: 1, borderBottom: '2px dashed #000' }}></div> {/* Filler line */}
+                                <span style={{ ...s.fieldValue, flexGrow: 0, width: '150px', textAlign: 'left', paddingLeft: '5px' }}>{toBangla(receiptData.khatianNo)}</span>
+                                <div style={{ flexGrow: 1, borderBottom: '1px dashed #000' }}></div> {/* Filler line */}
                             </div>
                         </div>
 
@@ -255,20 +257,20 @@ const LandReceipt = ({ data, onBack }) => {
                                         <table className="w-1/2 border-collapse border-dashed border-black text-xs text-center">
                                             <thead>
                                                 <tr>
-                                                    <th className="border-dashed border-2 text-xs border-black p-1">ক্রমঃ</th>
-                                                    <th className="border-dashed border-2 text-xs border-black px-7 py-1">মালিকের নাম</th>
-                                                    <th className="border-dashed border-2 text-xs border-black px-2 py-1 ">মালিকের অংশ</th>
+                                                    <th className="border-dashed border text-xs border-black p-1">ক্রমঃ</th>
+                                                    <th className="border-dashed border text-xs border-black px-7 py-1">মালিকের নাম</th>
+                                                    <th className="border-dashed border text-xs border-black px-2 py-1 ">মালিকের অংশ</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td className="border-dashed text-xs border-2 border-black p-1">
+                                                    <td className="border-dashed text-xs border border-black p-1">
                                                         {left ? toBangla(owners.indexOf(left) + 1) : ""}
                                                     </td>
-                                                    <td className="border-dashed text-xs border-2 border-black p-1 text-left px-2">
+                                                    <td className="border-dashed text-xs border border-black p-1 text-left px-2">
                                                         {left?.ownerName || ""}
                                                     </td>
-                                                    <td className="border-dashed text-xs border-2 border-black p-1">
+                                                    <td className="border-dashed text-xs border border-black p-1">
                                                         {left?.ownerShare || ""}
                                                     </td>
                                                 </tr>
@@ -276,23 +278,23 @@ const LandReceipt = ({ data, onBack }) => {
                                         </table>
 
                                         {/* ===== Right Table ===== */}
-                                        <table className="w-1/2 border-collapse border-dashed border-2 border-black text-xs text-center">
+                                        <table className="w-1/2 border-collapse border-dashed border border-black text-xs text-center">
                                             <thead>
                                                 <tr>
-                                                    <th className="border-dashed  border-2 text-xs border-black p-1 ">ক্রমঃ</th>
-                                                    <th className="border-dashed border-2 text-xs border-black px-7 py-1">মালিকের নাম</th>
-                                                    <th className="border-dashed border-2 text-xs border-black px-2 py-1">মালিকের অংশ</th>
+                                                    <th className="border-dashed  border text-xs border-black p-1 ">ক্রমঃ</th>
+                                                    <th className="border-dashed border text-xs border-black px-7 py-1">মালিকের নাম</th>
+                                                    <th className="border-dashed border text-xs border-black px-2 py-1">মালিকের অংশ</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td className="border-dashed text-xs border-2 border-black p-1">
+                                                    <td className="border-dashed text-xs border border-black p-1">
                                                         {right ? toBangla(owners.indexOf(right) + 1) : ""}
                                                     </td>
-                                                    <td className="border-dashed text-xs border-2 border-black p-1 text-left px-2">
+                                                    <td className="border-dashed text-xs border border-black p-1 text-left px-2">
                                                         {right?.ownerName || ""}
                                                     </td>
-                                                    <td className="border-dashed text-xs border-2 border-black p-1">
+                                                    <td className="border-dashed text-xs border border-black p-1">
                                                         {right?.ownerShare || ""}
                                                     </td>
                                                 </tr>
@@ -318,45 +320,45 @@ const LandReceipt = ({ data, onBack }) => {
                                     <div key={rowIdx} className="flex gap-4">
 
                                         {/* ===== Left Land Table ===== */}
-                                        <table className="w-1/2 border-collapse border border-black text-xs text-center">
+                                        <table className="w-1/2 border-collapse border-dashed border border-black text-xs text-center">
                                             <thead>
                                                 <tr>
-                                                    <th className="border-dashed border-2 border-black text-xs p-1">ক্রমঃ</th>
-                                                    <th className="border-dashed border-2 border-black text-xs p-1">দাগ নং</th>
-                                                    <th className="border-dashed border-2 border-black text-xs text-start pr-2 py-1">জমির শ্রেণী</th>
-                                                    <th className="border-dashed border-2 border-black text-xs text-start pr-7 py-1">জমির পরিমাণ (শতাংশ)</th>
+                                                    <th className="border-dashed border border-black text-xs p-1">ক্রমঃ</th>
+                                                    <th className="border-dashed border border-black text-xs  p-1">দাগ নং</th>
+                                                    <th className="border-dashed border border-black text-xs text-start pl-1 pr-2 py-1">জমির শ্রেণী</th>
+                                                    <th className="border-dashed border border-black text-xs text-start pl-1 pr-7 py-1">জমির পরিমাণ (শতাংশ)</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td className="border-dashed border-2 text-xs text-center border-black py-1">
+                                                    <td className="border-dashed border text-xs text-center border-black py-1">
                                                         {left ? toBangla(lands.indexOf(left) + 1) : ""}
                                                     </td>
-                                                    <td className="border-dashed border-2 border-black text-xs text-center py-1">{left?.dagNo || ""}</td>
-                                                    <td className="border-dashed border-2 border-black text-xs text-center py-1">{left?.landClass || ""}</td>
-                                                    <td className="border-dashed border-2 border-black text-xs text-center py-1">{left?.landArea || ""}</td>
+                                                    <td className="border-dashed border border-black text-xs text-start pl-1 py-1 pr-1">{left?.dagNo || ""}</td>
+                                                    <td className="border-dashed border border-black text-xs text-start pl-1 py-1">{left?.landClass || ""}</td>
+                                                    <td className="border-dashed border border-black text-xs text-start pl-1 py-1">{left?.landArea || ""}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
 
                                         {/* ===== Right Land Table ===== */}
-                                        <table className="w-1/2 border-collapse border-dashed border-2 border-black text-xs text-center">
+                                        <table className="w-1/2 border-collapse border-dashed border border-black text-xs text-center">
                                             <thead>
                                                 <tr>
-                                                    <th className="border-dashed border-2 border-black text-xs p-1 ">ক্রমঃ</th>
-                                                    <th className="border-dashed border-2 border-black text-xs p-1">দাগ নং</th>
-                                                    <th className="border-dashed border-2 border-black text-xs text-start pr-2 py-1">জমির শ্রেণী</th>
-                                                    <th className="border-dashed border-2 border-black text-xs text-start pr-7 py-1 ">জমির পরিমাণ (শতাংশ)</th>
+                                                   <th className="border-dashed border border-black text-xs p-1">ক্রমঃ</th>
+                                                    <th className="border-dashed border border-black text-xs  p-1">দাগ নং</th>
+                                                    <th className="border-dashed border border-black text-xs text-start pl-1 pr-2 py-1">জমির শ্রেণী</th>
+                                                    <th className="border-dashed border border-black text-xs text-start pl-1 pr-7 py-1">জমির পরিমাণ (শতাংশ)</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td className="border-dashed border-2 text-xs text-center border-black py-1">
+                                                    <td className="border-dashed border text-xs text-center border-black py-1">
                                                         {right ? toBangla(lands.indexOf(right) + 1) : ""}
                                                     </td>
-                                                    <td className="border-dashed border-2 text-xs text-center border-black py-1">{right?.dagNo || ""}</td>
-                                                    <td className="border-dashed border-2 text-xs text-center border-black py-1">{right?.landClass || ""}</td>
-                                                    <td className="border-dashed border-2 text-xs text-center border-black py-1">{right?.landArea || ""}</td>
+                                                    <td className="border-dashed border text-xs  border-black text-start pl-1 py-1 pr-1">{right?.dagNo || ""}</td>
+                                                    <td className="border-dashed border text-xs  border-black text-start pl-1  py-1">{right?.landClass || ""}</td>
+                                                    <td className="border-dashed border text-xs  border-black text-start pl-1 py-1">{right?.landArea || ""}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -374,7 +376,7 @@ const LandReceipt = ({ data, onBack }) => {
                                 border: '1px dashed #000',
                                 borderCollapse: 'collapse',
                                 fontSize: '12px',
-                                fontWeight: 'bold',
+                                fontWeight: 'normal',
                                 fontFamily: "'Kalpurush', 'SolaimanLipi', sans-serif",
                             }}
                         >
@@ -412,7 +414,7 @@ const LandReceipt = ({ data, onBack }) => {
                                 borderLeft: '1px solid #dedede',
                                 borderRight: '1px solid #dedede',
                                 borderBottom: 'none',
-                                fontSize: '15px', textAlign: 'center', padding: '10px 0px', fontWeight: 'bold'
+                                fontSize: '14px', textAlign: 'center', padding: '8px 0px', fontWeight: 'bold'
                             }}>আদায়ের বিবরণ</div>
                             <table style={s.solidTable}>
                                 <thead>
@@ -443,8 +445,8 @@ const LandReceipt = ({ data, onBack }) => {
                         </div>
 
                         {/* 6. AMOUNT IN WORDS */}
-                        <div style={{ ...s.fontBangla, marginTop: '10px', borderBottom: '1px dashed #000', paddingBottom: '5px' }}>
-                            <span style={{ fontWeight: '', fontSize: '13px' }}>সর্বমোট (কথায়):</span> {receiptData.paymentDetails?.amountInWords} ।
+                        <div style={{ ...s.fontBangla, marginTop: '10px', borderBottom: '1px dashed #000', paddingBottom: '0px' }}>
+                            <span style={{ fontWeight: '', fontSize: '13px' }}>সর্বমোট (কথায়):</span > <span style={{ fontWeight: '', fontSize: '13px' }}>{receiptData.paymentDetails?.amountInWords}</span> ।
                         </div>
 
                         {/* 7. FOOTER */}
@@ -453,11 +455,11 @@ const LandReceipt = ({ data, onBack }) => {
 
                                 {/* Left Side: Note, Challan, Date */}
                                 <div style={{ fontSize: '13px', flex: 1 }}>
-                                    <p style={{ marginBottom: '3px' }}>নোট: সর্বশেষ কর পরিশোধের সাল - {toBangla(receiptData.paymentDetails?.lastPaymentYear)} (অর্থবছর)</p>
-                                    <p style={{ marginBottom: '3px' }}>
-                                        <span style={{ fontWeight: '' }}>চালান নং :</span>
+                                    <p style={{ marginBottom: '1px' }}>নোট: সর্বশেষ কর পরিশোধের সাল - {toBangla(receiptData.paymentDetails?.lastPaymentYear)} (অর্থবছর)</p>
+                                    <p style={{ marginBottom: '1px' }}>
+                                        <span style={{ fontWeight: '' ,fontSize:'12px'}}>চালান নং :</span>
                                         <span style={{ paddingLeft: '10px' }}>{toBangla(receiptData.paymentDetails?.challanNo) || '______________'}</span>
-                                    </p>
+                                    </p> 
 
                                     {/* Date Box Logic */}
                                     <div style={{ display: 'flex', alignItems: 'flex-start' }}>
